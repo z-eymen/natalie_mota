@@ -14,16 +14,22 @@
 <body <?php body_class(); ?>>
 
     <?php wp_body_open(); ?>
-    <header>
-        <div>
+    <header id="header" class="header flexrow">
+        <div class="container-header flexrow" >
             <a href="<?php echo home_url('/'); ?>" aria-label="Page d'accueil de Nathalie Mota">
                 <img src="<?php echo get_template_directory_uri(); ?> /assets/img/Logo.png" alt="Logo <?php echo bloginfo('name'); ?>">
             </a>
 
-            <nav>
+            <nav id="navigation">
 
             <!-- Affichage du menu déclaré dans function.php  -->
-                
+
+            <?php wp_nav_menu([
+                    'theme_location'  => 'menu-header',
+                    'menu_class'      => 'navigation'
+                ]
+            );
+            ?>   
             </nav>
         </div>
     </header>
